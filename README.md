@@ -4,6 +4,24 @@
 
 <br />
 
+# Diagram
+
+
+```mermaid
+graph LR
+    A[Git Repository] --> B[GitHub Actions]
+    B -- Next.js 빌드 산출물 --> C[Amazon S3]
+    C --> D[Amazon CloudFront]
+    D --> E[Internet]
+    
+    subgraph AWS Cloud
+        C
+        D
+    end
+```
+
+<br />
+
 # CI/CD pipeline
 1. ```main``` 브랜치에 ```push``` 이벤트가 있을 때 워크플로우가 트리거됩니다.
 2.  ```actions/checkout@v4.1.7```을 사용하여 리포지토리 코드를 체크아웃합니다.
